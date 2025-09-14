@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PokeCard from './components/PokeCard';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +16,7 @@ const App = () => {
       const res = await fetch(`http://127.0.0.1:8000/api/pokemon/${query}`);
       const json = await res.json();
       setData(json);
-      console.log('risposta pikachu', json);
+      console.log('risposta pokemon', json);
     } catch (e) {
       console.error('Errore in fetch', e.message)
     } finally {
@@ -39,12 +40,8 @@ const App = () => {
           {loading ? "Cerco..." : "Cerca"}
         </button>
       </form>
-      {data && (
-        <pre style={{ background: "#f6f6f6", padding: 12, borderRadius: 8 }}>
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      )}
-      <p>Apri la console del browser: dovresti vedere la risposta JSON.</p>
+      {data && <PokeCard data={data} />}
+
     </div>
   );
 }
