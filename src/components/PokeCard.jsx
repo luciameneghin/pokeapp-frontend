@@ -16,7 +16,7 @@ export default function PokeCard({ data }) {
   } = data;
 
   return (
-    <div style={{ border: "1px solid #eee", padding: 16, borderRadius: 12 }}>
+    <div style={{ border: "1px solid #eee", padding: 16, borderRadius: 12, backgroundColor: "white" }}>
       <div style={{ display: "flex", gap: 16 }}>
         {/* Sprite */}
         <div style={{ display: "grid", gap: 8 }}>
